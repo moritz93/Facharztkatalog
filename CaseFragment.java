@@ -38,7 +38,6 @@ public class CaseFragment extends Fragment implements View.OnClickListener, Adap
 
     private MainViewModel model;
     private ListAdapter<Procedure> lva;
-
     private ActionBar actionBar;
     private LinearLayout footer;
 

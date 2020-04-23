@@ -32,8 +32,6 @@ import com.example.facharztkatalog.gui.OverviewAdapter;
 import com.example.facharztkatalog.util.Excel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class OverviewFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -181,7 +179,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     private Handler makeSearchDoneHandler() {
         return new Handler(msg -> {
             if (msg.what == MainActivity.SEARCH_DONE_CODE) {
-                recyclerViewSearch.getAdapter().notifyDataSetChanged();
+                RecyclerView.Adapter a = recyclerViewSearch.getAdapter();
+                if(a != null) a.notifyDataSetChanged();
             }
             return true;
         });
